@@ -1,12 +1,36 @@
 <h4 class="text-center">Login</h4>
 
-<form class="form mt-4">
+<form class="form mt-4" (ngSubmit)="login()">
   <div class="form-group">
-    <input class="form-control" placeholder="Nome do Usuário" type="text" />
+    <input class="form-control"
+      placeholder="Nome do Usuário"
+      type="text"
+      [(ngModel)]="usuario"
+      name="usuario"
+      #campoUsuario="ngModel" required
+    />
+
+    <app-mensagem
+      *ngIf="campoUsuario.invalid"
+      mensagem="Usuário Obrigatório">
+    </app-mensagem>
+
   </div>
 
   <div class="form-group">
-    <input class="form-control" placeholder="Senha" type="password" />
+    <input class="form-control"
+      placeholder="Senha"
+      type="password"
+      [(ngModel)]="senha"
+      name="senha"
+      #campoSenha="ngModel" required
+    />
+
+    <app-mensagem
+      *ngIf="campoSenha.invalid"
+      mensagem="Senha Obrigatória">
+    </app-mensagem>
+
   </div>
 
   <button class="btn btn-primary btn-block" type="submit">Login</button>
