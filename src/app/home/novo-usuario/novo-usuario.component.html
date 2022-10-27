@@ -1,16 +1,37 @@
 <h4 class="text-center">Cadastre-se</h4>
-<form class="form mt-4">
+
+<form class="form mt-4" [formGroup]="novoUsuarioForm" (Submit)="cadastrar()">
   <div class="form-group">
-    <input placeholder="email" class="form-control"/>
+    <input
+      placeholder="email"
+      class="form-control"
+      formControlName="email"
+    />
   </div>
   <div class="form-group">
-    <input placeholder="Nome Completo" class="form-control"/>
+    <input
+      placeholder="Nome Completo"
+      class="form-control"
+      formControlName="fullName"
+    />
   </div>
   <div class="form-group">
-    <input placeholder="Usuario" class="form-control"/>
+    <input
+      placeholder="Usuario"
+      class="form-control"
+      formControlName="userName"
+    />
   </div>
   <div class="form-group">
-    <input placeholder="Senha" type="password" class="form-control"/>
+    <input
+      placeholder="Senha"
+      type="password"
+      class="form-control"
+      formControlName="password"
+    />
   </div>
+
   <button class="btn btn-primary btn-block">Cadastro</button>
 </form>
+
+<p>Já é um Usuário?<a [routerLink]="['']">Logar</a></p>
